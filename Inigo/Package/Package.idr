@@ -26,6 +26,7 @@ record Package where
   executable : Maybe String
   deps : List (List String, Requirement)
   devDeps : List (List String, Requirement)
+  packageSet : Maybe String
 
 public export
 Show Package where
@@ -44,13 +45,14 @@ Show Package where
         ", main=", (show $ main pkg),
         ", executable=", (show $ executable pkg),
         ", deps=", (show $ deps pkg),
-        ", dev-deps=", (show $ devDeps pkg)
+        ", dev-deps=", (show $ devDeps pkg),
+        ", package-set=", (show $ packageSet pkg)
       ]) ++ "}"
 
 public export
 Eq Package where
-  (MkPackage ns0 package0 version0 description0 link0 readme0 modules0 depends0 license0 main0 executable0 deps0 devDeps0) == (MkPackage ns1 package1 version1 description1 link1 readme1 modules1 depends1 license1 main1 executable1 deps1 devDeps1) =
-    ns0 == ns1 && package0 == package1 && version0 == version1 && description0 == description1 && link0 == link1 && readme0 == readme1 && modules0 == modules1 && depends0 == depends1 && license0 == license1 && main0 == main1 && executable0 == executable1 && deps0 == deps1 && devDeps0 == devDeps1
+  (MkPackage ns0 package0 version0 description0 link0 readme0 modules0 depends0 license0 main0 executable0 deps0 devDeps0 ps0) == (MkPackage ns1 package1 version1 description1 link1 readme1 modules1 depends1 license1 main1 executable1 deps1 devDeps1 ps1) =
+    ns0 == ns1 && package0 == package1 && version0 == version1 && description0 == description1 && link0 == link1 && readme0 == readme1 && modules0 == modules1 && depends0 == depends1 && license0 == license1 && main0 == main1 && executable0 == executable1 && deps0 == deps1 && devDeps0 == devDeps1 && ps0 == ps1
 
 export
 parseDeps : List String -> Toml -> Either String (List (List String, Requirement))
@@ -88,7 +90,8 @@ parsePackage pkgToml =
     executable <- maybe (string ["executable"] toml)
     deps <- parseDeps ["deps"] toml
     devDeps <- parseDeps ["dev-deps"] toml
-    pure (MkPackage ns package version description link readme modules depends license main executable deps devDeps)
+    packageSet <- maybe (string ["package-set"] toml)
+    pure (MkPackage ns package version description link readme modules depends license main executable deps devDeps packageSet)
 
 -- TODO: Get deps better, e.g. pin instead of `&&`
 export
@@ -105,7 +108,8 @@ toToml pkg =
     Just (["depends"], Lst (map Str (depends pkg))),
     map (\license => (["license"], Str license)) (license pkg),
     map (\main => (["main"], Str main)) (main pkg),
-    map (\executable => (["executable"], Str executable)) (executable pkg)
+    map (\executable => (["executable"], Str executable)) (executable pkg),
+    map (\packageSet => (["package-set"], Str packageSet)) (packageSet pkg)
   ]) ++ (depsVal "deps" (deps pkg)) ++ (depsVal "dev-deps" (devDeps pkg))
   where
     depsVal : String -> List (List String, Requirement) -> List (List String, Value)
