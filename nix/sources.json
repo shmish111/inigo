@@ -1,0 +1,62 @@
+{
+    "Idris2": {
+        "branch": "master",
+        "description": "A purely functional programming language with first class types",
+        "homepage": "https://idris-lang.org/",
+        "owner": "shmish111",
+        "repo": "Idris2",
+        "rev": "9814a71573badb6271099d27f8ba29e6d4a3b350",
+        "sha256": "16ymrbgz42xyf0p7l82a08kk8kq7vhzswspa2ll50jmqfscicqmq",
+        "type": "tarball",
+        "url": "https://github.com/shmish111/Idris2/archive/9814a71573badb6271099d27f8ba29e6d4a3b350.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "Idris2US": {
+        "branch": "master",
+        "description": "A purely functional programming language with first class types",
+        "homepage": "https://idris-lang.org/",
+        "owner": "idris-lang",
+        "repo": "Idris2",
+        "rev": "08a35d694cfb75dd8c1f3cfb67a010177e1a682d",
+        "sha256": "1vz8bd5pf9gkcsawxkjryy63zbw4w8sqav2sd6fm6nw2mcpxk4zz",
+        "type": "tarball",
+        "url": "https://github.com/idris-lang/Idris2/archive/08a35d694cfb75dd8c1f3cfb67a010177e1a682d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "ab9cc41caf44d1f1d465d8028e4bc0096fd73238",
+        "sha256": "17k52n8zwp832cqifsc4458mhy4044wmk22f807171hf6p7l4xvr",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/ab9cc41caf44d1f1d465d8028e4bc0096fd73238.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "20.09",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cd63096d6d887d689543a0b97743d28995bc9bc3",
+        "sha256": "1wg61h4gndm3vcprdcg7rc4s1v3jkm5xd7lw8r2f67w502y94gcy",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/cd63096d6d887d689543a0b97743d28995bc9bc3.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "smoke-hill": {
+        "branch": "main",
+        "description": "A package set of Idris libraries",
+        "homepage": null,
+        "owner": "shmish111",
+        "repo": "smoke-hill",
+        "rev": "93ecc62c2a355225eef05f48eeb3ac3678def643",
+        "sha256": "16wyly6lf1khhafqp6nf4dg7b81ppgrw3y7vabdmlbgsyxgf4w10",
+        "type": "tarball",
+        "url": "https://github.com/shmish111/smoke-hill/archive/93ecc62c2a355225eef05f48eeb3ac3678def643.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
